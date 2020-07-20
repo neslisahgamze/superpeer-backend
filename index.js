@@ -42,6 +42,9 @@ app.get('/people', function(req, res, next) {
 
 	make_api_call("people").then((response) => {
 		res.send(response);
-	})
+	}).catch((errors) => {
+	   res.status(500);
+	   res.send("Oops, something went wrong.")
+  })
 })
 
